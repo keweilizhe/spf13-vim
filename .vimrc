@@ -57,7 +57,7 @@
           set runtimepath=$HOME/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/.vim/after
         endif
     " }
-    
+
     " Arrow Key Fix {
         " https://github.com/spf13/spf13-vim/issues/780
         if &term[:4] == "xterm" || &term[:5] == 'screen' || &term[:3] == 'rxvt'
@@ -581,7 +581,7 @@
             let NERDTreeShowBookmarks=1
             let NERDTreeIgnore=['\.py[cd]$', '\~$', '\.swo$', '\.swp$', '^\.git$', '^\.hg$', '^\.svn$', '\.bzr$']
             let NERDTreeChDirMode=0
-            let NERDTreeQuitOnOpen=1
+            let NERDTreeQuitOnOpen=0
             let NERDTreeMouseMode=2
             let NERDTreeShowHidden=1
             let NERDTreeKeepTreeInNewTab=1
@@ -669,6 +669,11 @@
                 \ },
                 \ 'fallback': s:ctrlp_fallback
             \ }
+            if executable('rg')
+                let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
+                let g:ctrlp_use_caching = 0
+            endif
+
 
             if isdirectory(expand("~/.vim/bundle/ctrlp-funky/"))
                 " CtrlP extensions
@@ -1062,6 +1067,29 @@
         endif
     " }
 
+    " LeaderF {
+        if isdirectory(expand("~/.vim/bundle/LeaderF/"))
+            let g:Lf_ShortcutF = '<C-P>'
+            let g:Lf_WildIgnore = {
+                \ 'dir': ['.svn','.git','.hg'],
+                \ 'file': ['*.sw?','~$*','*.bak','*.exe','*.o','*.so','*.py[co]']
+                \}
+            " 用于标记项目根目录的文件或目录.
+            let g:Lf_RootMarkers = ['.git', '.svn', '.ignore']
+            " A表示根据当前打开的文件所在路径向上找项目根目录.
+            " a表示根据当前工作目录向上找项目的根目录.
+            " Aa表示当A模式找不到时fallback到使用a模式去找.
+            let g:Lf_WorkingDirectoryMode='Aa'
+            " 默认模式为模糊匹配完整文件路径.
+            let g:Lf_DefaultMode='FullPath'
+            " 不使用版本控制工具来索引文件, 因为有时候我们希望找不在版本控制中的文件.
+            " 使用版本控制工具的好处是速度非常快,
+            " 但如果你有安装rg的话不使用版本控制工具索引文件也非常快.
+            let g:Lf_UseVersionControlTool = 0
+            let g:Lf_UseCache = 0
+
+        endif
+    " }
 
 
 " }
@@ -1197,23 +1225,23 @@
         endfor
         return s:is_fork
     endfunction
-     
+
     function! s:ExpandFilenameAndExecute(command, file)
         execute a:command . " " . expand(a:file, ":p")
     endfunction
-     
+
     function! s:EditSpf13Config()
         call <SID>ExpandFilenameAndExecute("tabedit", "~/.vimrc")
         call <SID>ExpandFilenameAndExecute("vsplit", "~/.vimrc.before")
         call <SID>ExpandFilenameAndExecute("vsplit", "~/.vimrc.bundles")
-     
+
         execute bufwinnr(".vimrc") . "wincmd w"
         call <SID>ExpandFilenameAndExecute("split", "~/.vimrc.local")
         wincmd l
         call <SID>ExpandFilenameAndExecute("split", "~/.vimrc.before.local")
         wincmd l
         call <SID>ExpandFilenameAndExecute("split", "~/.vimrc.bundles.local")
-     
+
         if <SID>IsSpf13Fork()
             execute bufwinnr(".vimrc") . "wincmd w"
             call <SID>ExpandFilenameAndExecute("split", "~/.vimrc.fork")
@@ -1222,10 +1250,10 @@
             wincmd l
             call <SID>ExpandFilenameAndExecute("split", "~/.vimrc.bundles.fork")
         endif
-     
+
         execute bufwinnr(".vimrc.local") . "wincmd w"
     endfunction
-     
+
     execute "noremap " . s:spf13_edit_config_mapping " :call <SID>EditSpf13Config()<CR>"
     execute "noremap " . s:spf13_apply_config_mapping . " :source ~/.vimrc<CR>"
 " }

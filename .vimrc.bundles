@@ -91,8 +91,7 @@
     " In your .vimrc.before.local file
     " list only the plugin groups you will use
     if !exists('g:spf13_bundle_groups')
-        let g:spf13_bundle_groups=[
-            'general',
+        let g:spf13_bundle_groups=['general', 'programming',]
             " 'writing',
             " 'neocomplete',
             " 'programming',
@@ -102,7 +101,7 @@
             " 'javascript',
             " 'html',
             " 'misc',
-        ]
+        " ]
     endif
 
     " To override all the included bundles, add the following to your
@@ -113,13 +112,14 @@
     " General {
         if count(g:spf13_bundle_groups, 'general')
             Bundle 'scrooloose/nerdtree'
-            " Bundle 'altercation/vim-colors-solarized'
+            Bundle 'altercation/vim-colors-solarized'
             " Bundle 'spf13/vim-colors'
             " Bundle 'tpope/vim-surround'
             " Bundle 'tpope/vim-repeat'
             " Bundle 'rhysd/conflict-marker.vim'
             " Bundle 'jiangmiao/auto-pairs'
-            Bundle 'ctrlpvim/ctrlp.vim'
+            Bundle 'Yggdroot/LeaderF'
+            " Bundle 'ctrlpvim/ctrlp.vim'
             " Bundle 'tacahiroy/ctrlp-funky'
             " Bundle 'terryma/vim-multiple-cursors'
             " Bundle 'vim-scripts/sessionman.vim'
@@ -163,17 +163,17 @@
     " General Programming {
         if count(g:spf13_bundle_groups, 'programming')
             " Pick one of the checksyntax, jslint, or syntastic
-            Bundle 'scrooloose/syntastic'
+            " Bundle 'scrooloose/syntastic'
             Bundle 'tpope/vim-fugitive'
-            Bundle 'mattn/webapi-vim'
-            Bundle 'mattn/gist-vim'
-            Bundle 'scrooloose/nerdcommenter'
-            Bundle 'tpope/vim-commentary'
-            Bundle 'godlygeek/tabular'
-            Bundle 'luochen1990/rainbow'
-            if executable('ctags')
-                Bundle 'majutsushi/tagbar'
-            endif
+            " Bundle 'mattn/webapi-vim'
+            " Bundle 'mattn/gist-vim'
+            " Bundle 'scrooloose/nerdcommenter'
+            " Bundle 'tpope/vim-commentary'
+            " Bundle 'godlygeek/tabular'
+            " Bundle 'luochen1990/rainbow'
+            " if executable('ctags')
+            "     Bundle 'majutsushi/tagbar'
+            " endif
         endif
     " }
 
