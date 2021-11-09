@@ -91,7 +91,18 @@
     " In your .vimrc.before.local file
     " list only the plugin groups you will use
     if !exists('g:spf13_bundle_groups')
-        let g:spf13_bundle_groups=['general', 'writing', 'neocomplete', 'programming', 'php', 'ruby', 'python', 'javascript', 'html', 'misc',]
+        let g:spf13_bundle_groups=[
+            'general',
+            " 'writing',
+            " 'neocomplete',
+            " 'programming',
+            " 'php',
+            " 'ruby',
+            " 'python',
+            " 'javascript',
+            " 'html',
+            " 'misc',
+        ]
     endif
 
     " To override all the included bundles, add the following to your
@@ -102,41 +113,41 @@
     " General {
         if count(g:spf13_bundle_groups, 'general')
             Bundle 'scrooloose/nerdtree'
-            Bundle 'altercation/vim-colors-solarized'
-            Bundle 'spf13/vim-colors'
-            Bundle 'tpope/vim-surround'
-            Bundle 'tpope/vim-repeat'
-            Bundle 'rhysd/conflict-marker.vim'
-            Bundle 'jiangmiao/auto-pairs'
+            " Bundle 'altercation/vim-colors-solarized'
+            " Bundle 'spf13/vim-colors'
+            " Bundle 'tpope/vim-surround'
+            " Bundle 'tpope/vim-repeat'
+            " Bundle 'rhysd/conflict-marker.vim'
+            " Bundle 'jiangmiao/auto-pairs'
             Bundle 'ctrlpvim/ctrlp.vim'
-            Bundle 'tacahiroy/ctrlp-funky'
-            Bundle 'terryma/vim-multiple-cursors'
-            Bundle 'vim-scripts/sessionman.vim'
-            Bundle 'matchit.zip'
-            if (has("python") || has("python3")) && exists('g:spf13_use_powerline') && !exists('g:spf13_use_old_powerline')
-                Bundle 'Lokaltog/powerline', {'rtp':'/powerline/bindings/vim'}
-            elseif exists('g:spf13_use_powerline') && exists('g:spf13_use_old_powerline')
-                Bundle 'Lokaltog/vim-powerline'
-            else
-                Bundle 'vim-airline/vim-airline'
-                Bundle 'vim-airline/vim-airline-themes'
-            endif
-            Bundle 'powerline/fonts'
-            Bundle 'bling/vim-bufferline'
-            Bundle 'easymotion/vim-easymotion'
-            Bundle 'jistr/vim-nerdtree-tabs'
-            Bundle 'flazz/vim-colorschemes'
-            Bundle 'mbbill/undotree'
-            Bundle 'nathanaelkane/vim-indent-guides'
-            if !exists('g:spf13_no_views')
-                Bundle 'vim-scripts/restore_view.vim'
-            endif
-            Bundle 'mhinz/vim-signify'
-            Bundle 'tpope/vim-abolish.git'
-            Bundle 'osyo-manga/vim-over'
-            Bundle 'kana/vim-textobj-user'
-            Bundle 'kana/vim-textobj-indent'
-            Bundle 'gcmt/wildfire.vim'
+            " Bundle 'tacahiroy/ctrlp-funky'
+            " Bundle 'terryma/vim-multiple-cursors'
+            " Bundle 'vim-scripts/sessionman.vim'
+            " Bundle 'matchit.zip'
+            " if (has("python") || has("python3")) && exists('g:spf13_use_powerline') && !exists('g:spf13_use_old_powerline')
+            "     Bundle 'Lokaltog/powerline', {'rtp':'/powerline/bindings/vim'}
+            " elseif exists('g:spf13_use_powerline') && exists('g:spf13_use_old_powerline')
+            "     Bundle 'Lokaltog/vim-powerline'
+            " else
+            "     Bundle 'vim-airline/vim-airline'
+            "     Bundle 'vim-airline/vim-airline-themes'
+            " endif
+            " Bundle 'powerline/fonts'
+            " Bundle 'bling/vim-bufferline'
+            " Bundle 'easymotion/vim-easymotion'
+            " Bundle 'jistr/vim-nerdtree-tabs'
+            " Bundle 'flazz/vim-colorschemes'
+            " Bundle 'mbbill/undotree'
+            " Bundle 'nathanaelkane/vim-indent-guides'
+            " if !exists('g:spf13_no_views')
+            "     Bundle 'vim-scripts/restore_view.vim'
+            " endif
+            " Bundle 'mhinz/vim-signify'
+            " Bundle 'tpope/vim-abolish.git'
+            " Bundle 'osyo-manga/vim-over'
+            " Bundle 'kana/vim-textobj-user'
+            " Bundle 'kana/vim-textobj-indent'
+            " Bundle 'gcmt/wildfire.vim'
         endif
     " }
 
