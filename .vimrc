@@ -1069,7 +1069,8 @@
 
     " LeaderF {
         if isdirectory(expand("~/.vim/bundle/LeaderF/"))
-            let g:Lf_ShortcutF = '<C-P>'
+            " let g:Lf_ShortcutF = '<C-P>'
+            nmap <C-P> :Leaderf file --no-ignore<CR>
             let g:Lf_WildIgnore = {
                 \ 'dir': ['.svn','.git','.hg'],
                 \ 'file': ['*.sw?','~$*','*.bak','*.exe','*.o','*.so','*.py[co]']
@@ -1087,6 +1088,15 @@
             " 但如果你有安装rg的话不使用版本控制工具索引文件也非常快.
             let g:Lf_UseVersionControlTool = 0
             let g:Lf_UseCache = 0
+            " let g:Lf_MaxCount = 3
+            " let g:Lf_ExternalCommand = 'rg --no-messages --files --no-ignore-vcs %s'
+            " let g:Lf_GtagsfilesCmd = {
+            "     \ 'default': 'rg --no-messages --files --no-ignore-vcs'
+            "     \}
+            " let g:Lf_RgConfig = [
+            "     \ "--max-columns=3",
+            "     \ "--no-ignore"
+            " \ ]
 
         endif
     " }
