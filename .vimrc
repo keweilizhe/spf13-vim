@@ -80,7 +80,7 @@
 " }
 
 " General {
-
+    set belloff=all
     set background=dark         " Assume a dark background
 
     " Allow to trigger background
